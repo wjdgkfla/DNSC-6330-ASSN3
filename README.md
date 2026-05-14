@@ -1,70 +1,44 @@
-# Assignment 3 - Disparate Impact Audit (Lecture 03, COMPAS)
+# Disparate Impact Audit — AIR, SMD & Statistical Testing (DNSC 6330, Assignment 3)
 
-## Purpose of the Analysis
-This repository reproduces the Lecture 03 COMPAS disparate impact audit workflow in Python. The goal is to preserve the core lecture framework: AIR/ME/SMD disparity metrics, error-rate disparity testing, intersectional subgroup analysis, statistical significance checks, and compliance-oriented interpretation.
+Conducted a full disparate impact audit on the COMPAS recidivism model using industry-standard fairness metrics: Adverse Impact Ratio (AIR), Mean Effect (ME), Standardized Mean Difference (SMD), and intersectional subgroup analysis.
 
-Notebook included:
-- `Assignment_3_lecture03_aligned.ipynb`
+**Skills:** Python · pandas · scikit-learn · statsmodels · solas-ai · Fairness Auditing · Statistical Hypothesis Testing
 
-Reference materials used:
-- `DNSC_6330_Lecture-03.pdf`
-- `Lecture_03_bias.ipynb`
+---
 
-## Libraries Used
-- `pandas`
-- `numpy`
-- `matplotlib`
-- `statsmodels`
-- `scikit-learn`
-- `solas-disparity` (`import solas_disparity as sd`)
+## What This Project Demonstrates
 
-## How This Notebook Matches the Assignment Requirements
-### 1) Compute AIR, ME, and SMD
-- Computes AIR and ME for race and sex.
-- Computes SMD using model score output (predicted probability).
-- Includes manual calculations and Solas-based calculations.
+- Computing AIR, ME, and SMD manually and verifying with Solas-AI library
+- Two-proportion z-tests for selection-rate and error-rate disparities by race and sex
+- Intersectional subgroup analysis (race x sex) to surface compound discrimination
+- Compliance framing: practical vs. statistical significance under disparate impact doctrine
+- Producing audit-ready fairness visualizations and a compliance memo
 
-### 2) Manual vs Solas Consistency Checks
-- Explicitly compares manual vs Solas AIR/ME outputs.
-- Explicitly compares manual vs Solas SMD outputs.
-- Uses tolerance-based pass/fail checks.
+---
 
-### 3) Error-Rate Disparity Analysis
-- Computes FPR and FNR by race.
-- Compares race-level error rates to Caucasian baseline.
-- Runs two-proportion z-tests for selection-rate and error-rate disparities.
+## Dataset
 
-### 4) Intersectional Subgroup Analysis
-- Builds race x sex subgroup table.
-- Reports subgroup counts and selection rates.
-- Computes subgroup AIR and identifies worst-group AIR.
+ProPublica COMPAS Recidivism — same cleaned cohort as Assignments 1 & 2
 
-### 5) Visualization and Compliance Memo
-- Produces lecture-style FPR/FNR by race figure with Caucasian baseline line.
-- Saves figure as `error_rate_disparity.png`.
-- Includes a compliance memo with practical + statistical significance framing and burden-shifting context.
+---
 
-## Reproducibility Instructions
-1. Create and activate a Python 3.11+ environment.
-2. Install dependencies:
-   ```bash
-   pip install pandas numpy matplotlib statsmodels scikit-learn solas-ai
-   ```
-3. Open Jupyter and run all cells in:
-   - `Assignment_3_lecture03_aligned.ipynb`
+## Notebook
 
-## Expected Outputs
-- Race and sex AIR/ME tables (manual and Solas).
-- SMD tables (manual and Solas).
-- Manual-vs-Solas pass/fail consistency checks.
-- FPR/FNR disparity table and z-test outputs.
-- Intersectional subgroup AIR table with worst-group report.
-- Figure: `error_rate_disparity.png`.
-- Final compliance memo (with word count printout).
+`Assignment_3_lecture03_aligned.ipynb` — runs top-to-bottom and reproduces all outputs
 
-## Note on Interpretation
-The notebook follows Lecture 03 guidance to report both:
-- Practical significance (AIR/ME/SMD/effect size), and
-- Statistical significance (p-values).
+**Key outputs:**
+- Race and sex AIR/ME tables (manual and Solas, with consistency checks)
+- SMD tables (manual and Solas)
+- FPR/FNR disparity table and z-test results
+- Intersectional subgroup AIR table with worst-group flagging
+- `error_rate_disparity.png` visualization
+- Compliance memo with burden-shifting analysis
 
-These metrics are interpreted jointly under disparate impact and burden-shifting compliance framing.
+---
+
+## Setup
+
+```bash
+pip install pandas numpy matplotlib statsmodels scikit-learn solas-ai
+jupyter notebook Assignment_3_lecture03_aligned.ipynb
+```
